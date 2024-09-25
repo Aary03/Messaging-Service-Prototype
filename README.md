@@ -1,95 +1,36 @@
-# Messaging-Service-Prototype
-Name : Aaryan Barnwal
-Roll No : 2022AM11221
-College : IIT Delhi
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Getting Started
 
-Messaging Service System Design
-1. Architecture Overview
-Our messaging service will use a microservices architecture with the following components:
+First, run the development server:
 
-Frontend: Next.js web application
-Backend: Node.js with Express
-Database: MongoDB (NoSQL)
-Real-time Communication: Socket.io
-Authentication: JSON Web Tokens (JWT)
-AI Chatbot: OpenAI GPT-3.5 (optional feature)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-2. Core Features
-2.1 User Registration and Authentication
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Use JWT for secure authentication
-Store hashed passwords in the database
-Implement password reset functionality
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-2.2 Messaging
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-One-on-one messaging
-Group chat functionality
-Real-time updates using WebSockets
+## Learn More
 
-2.3 Optional Features
+To learn more about Next.js, take a look at the following resources:
 
-AI-powered chatbot using OpenAI's GPT-3.5
-Video/audio calling using WebRTC
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-3. Data Models
-3.1 User
-javascriptCopy{
-  _id: ObjectId,
-  username: String,
-  email: String,
-  passwordHash: String,
-  createdAt: Date,
-  updatedAt: Date
-}
-3.2 Message
-javascriptCopy{
-  _id: ObjectId,
-  sender: ObjectId (ref: User),
-  receiver: ObjectId (ref: User or Group),
-  content: String,
-  timestamp: Date,
-  isRead: Boolean
-}
-3.3 Group
-javascriptCopy{
-  _id: ObjectId,
-  name: String,
-  members: [ObjectId] (ref: User),
-  createdBy: ObjectId (ref: User),
-  createdAt: Date,
-  updatedAt: Date
-}
-4. API Endpoints
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-POST /api/auth/register
-POST /api/auth/login
-GET /api/messages
-POST /api/messages
-GET /api/groups
-POST /api/groups
-PUT /api/groups/:id/members
+## Deploy on Vercel
 
-5. Real-time Communication
-Use Socket.io for real-time message updates and online status of users.
-6. Security Considerations
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Use HTTPS for all communications
-Implement rate limiting to prevent abuse
-Sanitize user inputs to prevent XSS attacks
-Use secure WebSocket connections
-
-7. Scalability
-
-Use a load balancer for distributing traffic
-Implement caching (e.g., Redis) for frequently accessed data
-Consider sharding the database for horizontal scaling
-
-8. Testing
-
-Unit tests for individual components
-Integration tests for API endpoints
-End-to-end tests for critical user flows
-
-This design provides a solid foundation for building a scalable and secure messaging service.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
